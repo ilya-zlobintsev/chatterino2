@@ -347,7 +347,6 @@ jobs:
       - name: Copy flatpakref
         run: |
           cp ./../.CI/chatterino-nightly.flatpakref release-artifacts/
-          git push -f origin nightly-build
         shell: bash
 
       - name: Create release
