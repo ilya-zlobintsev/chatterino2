@@ -307,7 +307,7 @@ jobs:
           path: build/chatterino-osx.dmg
             
       - name: Upload artifact (Flatpak link)
-        if: strtaswith(matrix.os, 'flatpakref')
+        if: startsWith(matrix.os, 'flatpakref')
         uses: actions/upload-artifact@v3
         with:
           name: chatterino-nightly.flatpakref
