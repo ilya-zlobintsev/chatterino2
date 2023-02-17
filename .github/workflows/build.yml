@@ -305,7 +305,7 @@ jobs:
         with:
           name: chatterino-osx-${{ matrix.qt-version }}.dmg
           path: build/chatterino-osx.dmg
-            
+
       - name: Upload artifact (Flatpak link)
         if: startsWith(matrix.os, 'flatpakref')
         uses: actions/upload-artifact@v3
