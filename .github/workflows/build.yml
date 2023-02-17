@@ -305,12 +305,6 @@ jobs:
           name: chatterino-osx-${{ matrix.qt-version }}.dmg
           path: build/chatterino-osx.dmg
 
-      - name: Upload artifact (Flatpak link)
-        uses: actions/upload-artifact@v3
-        with:
-          name: chatterino-nightly.flatpakref
-          path: ./../.CI/chatterino-nightly.flatpakref
-
   create-release:
     needs: build
     runs-on: ubuntu-latest
@@ -350,10 +344,11 @@ jobs:
           name: chatterino-osx-5.15.2.dmg
           path: release-artifacts/
 
-      - uses: actions/download-artifact@v3
-        with:
-          name: chatterino-nightly.flatpakref
-          path: release-artifacts/
+      - name: Copy flatpakref
+        run: |
+          cp ./../.CI/chatterino-nightly.flatpakref release-artifacts/
+          git push -f origin nightly-build
+        shell: bash
 
       - name: Create release
         uses: ncipollo/release-action@v1.12.0
