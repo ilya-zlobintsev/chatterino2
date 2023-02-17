@@ -346,7 +346,7 @@ jobs:
 
       - name: Copy flatpakref
         run: |
-          cp ./../.CI/chatterino-nightly.flatpakref release-artifacts/
+          cp .CI/chatterino-nightly.flatpakref release-artifacts/
         shell: bash
 
       - name: Create release
